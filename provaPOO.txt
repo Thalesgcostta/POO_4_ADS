@@ -1,0 +1,368 @@
+Album.java:
+package br.edu.fatecfranca.prova1;
+
+public class Album {
+    private int id;
+    private String nome;
+    private String descricao;
+
+    public Album(){
+        
+    }
+    public Album(int id, String nome, String descricao) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    @Override
+    public String toString() {
+        return "Album{" + "id=" + id + ", nome=" + nome + ", descricao=" + descricao + '}';
+    }
+    
+    
+}
+
+Apto.java:
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package br.edu.fatecfranca.prova1;
+
+/**
+ *
+ * @author danielfacciolo
+ */
+public class Apto extends Imovel {
+    private int nro;
+    
+    public Apto(){
+        super();
+    }
+
+    public Apto(int nro, String endereco) {
+        super(endereco);
+        this.nro = nro;
+    }
+
+    public int getNro() {
+        return nro;
+    }
+
+    public void setNro(int nro) {
+        this.nro = nro;
+    }
+    
+    @Override
+    public String toString() {
+        return "Apto{" + "nro=" + nro + super.toString() + '}';
+    }
+    
+    
+    
+}
+
+Casa.java:
+package br.edu.fatecfranca.prova1;
+
+public class Casa extends Imovel {
+    
+    private float quintal;
+    
+    public Casa(){
+        super();
+    }
+    
+    public Casa(float quintal, String endereco) {
+        super(endereco);
+        this.quintal = quintal;
+    }
+
+    public float getQuintal() {
+        return quintal;
+    }
+
+    public void setQuintal(float quintal) {
+        this.quintal = quintal;
+    }
+
+    @Override
+    public String toString() {
+        return "Casa{" + "quintal=" + quintal + super.toString() + '}';
+    }
+
+    
+}
+
+Compra.java:
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package br.edu.fatecfranca.prova1;
+
+import java.util.Date;
+
+/**
+ *
+ * @author danielfacciolo
+ */
+public class Compra {
+    private int id;
+    private Date data;
+    private Figurinha figura;
+    private Album album;
+
+    public Compra() {
+    }
+     
+    public Compra(int id, Date data, Figurinha figura, Album album) {
+        this.id = id;
+        this.data = data;
+        this.figura = figura;
+        this.album = album;
+    }
+
+   
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Figurinha getFigura() {
+        return figura;
+    }
+
+    public void setFigura(Figurinha figura) {
+        this.figura = figura;
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
+
+    @Override
+    public String toString() {
+        return "Compra{" + "id=" + id + ", data=" + data + ", figura=" + figura + ", album=" + album + '}';
+    }
+    
+    
+    
+}
+
+Computador.java:
+package br.edu.fatecfranca.prova1;
+
+/**
+ *
+ * @author danielfacciolo
+ */
+public final class Computador {
+
+    private String modo;
+    private int memoria;
+    
+    public Computador(){
+        
+    }
+
+    public Computador(String modo, int memoria) {
+        this.setModo(modo);
+        this.setMemoria(memoria);
+    }
+
+    public String getModo() {
+        return modo;
+    }
+
+    public void setModo(String modo) {
+        if (modo.equals("ligado") || modo.equals("desligado")){
+            this.modo = modo;
+        }
+        else System.out.println("Modo inválido");
+    }
+
+    public int getMemoria() {
+        return memoria;
+    }
+
+    public void setMemoria(int memoria) {
+        if (memoria == 4 || memoria == 8 || memoria == 16 || memoria == 32){
+            this.memoria = memoria;
+        }
+        else System.out.println("Memória inválida");
+    }
+    
+    public void upgradeRam(int x){
+        this.setMemoria(this.memoria + x);
+    }
+}
+
+Figurinha.java:
+package br.edu.fatecfranca.prova1;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author danielfacciolo
+ */
+public class Figurinha {
+    
+    private int id;
+    private String nome;
+    private boolean especial;
+
+    public Figurinha(){
+        
+    }
+    public Figurinha(int id, String nome, boolean especial) {
+        this.id = id;
+        this.nome = nome;
+        this.especial = especial;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public boolean isEspecial() {
+        return especial;
+    }
+
+    public void setEspecial(boolean especial) {
+        this.especial = especial;
+    }
+
+    @Override
+    public String toString() {
+        return "Figurinha{" + "id=" + id + ", nome=" + nome + ", especial=" + especial + '}';
+    }
+    
+    
+}
+
+Imovel.java:
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package br.edu.fatecfranca.prova1;
+
+/**
+ *
+ * @author danielfacciolo
+ */
+public class Imovel {
+ 
+    protected String endereco;
+    
+    public Imovel(){
+        
+    }
+
+    public Imovel(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    @Override
+    public String toString() {
+        return "Imovel{" + "endereco=" + endereco + '}';
+    }
+    
+    
+}
+
+Teste.java:
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package br.edu.fatecfranca.prova1;
+
+/**
+ *
+ * @author danielfacciolo
+ */
+public class Teste {
+
+    public static void converteString(Imovel im){
+        System.out.println(im.toString());
+    }
+    
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        Casa objCasa = new Casa(80, "Rua das Acácias");
+        converteString(objCasa);
+        
+        Apto objApto = new Apto(12, "Rua do Comércio 234");
+        converteString(objApto);
+    }
+    
+}
